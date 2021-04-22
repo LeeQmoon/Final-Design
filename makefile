@@ -6,8 +6,11 @@ OBJS=$(SRCS:.c=.o)
 EXEC=final
 
 build:$(OBJS)
-	$(CC) -o $(EXEC) $(OBJS) -lpcap
+	$(CC) -Wall -g -o $(EXEC) $(OBJS) -lpcap
 	@echo '-------------OK------------'
+
+.c.o:
+	$(CC) -Wall -g -o $@ -c $<
 
 clean:
 	rm -f $(OBJS)
